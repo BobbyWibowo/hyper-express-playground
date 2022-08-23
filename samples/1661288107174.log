@@ -1,0 +1,81 @@
+Starting…
+Listening on port: 8888
+POST /api/upload
+await req.multipart()
+field: fields[]
+fields[] is file
+
+1661288107174
+request: { isPaused(): false, readableFlowing: true }
+readStream: { isPaused(): false, readableFlowing: null }
+fs.createWriteStream('/home/bobby/src/hyper-express-playground/uploads/j8riltCdtBln7sbxblw5.zip')
+readStream.pause()
+
+1661288107175
+request: { isPaused(): false, readableFlowing: true }
+readStream: { isPaused(): true, readableFlowing: false }
+writeStream: { bytesWritten: 0 }
+readStream.on('data', ...)
+
+1661288107175
+request: { isPaused(): false, readableFlowing: true }
+readStream: { isPaused(): true, readableFlowing: false }
+writeStream: { bytesWritten: 0 }
+readStream.pipe(writeStream, { end: true })
+readStream:data => 32437
+readStream:data => 32741
+
+1661288108177
+request: { isPaused(): false, readableFlowing: true }
+readStream: { isPaused(): false, readableFlowing: true }
+writeStream: { bytesWritten: 65178 }
+
+1661288109178
+request: { isPaused(): false, readableFlowing: true }
+readStream: { isPaused(): false, readableFlowing: true }
+writeStream: { bytesWritten: 65178 }
+
+1661288110179
+request: { isPaused(): false, readableFlowing: true }
+readStream: { isPaused(): false, readableFlowing: true }
+writeStream: { bytesWritten: 65178 }
+
+1661288111180
+request: { isPaused(): false, readableFlowing: true }
+readStream: { isPaused(): false, readableFlowing: true }
+writeStream: { bytesWritten: 65178 }
+
+1661288112181
+request: { isPaused(): false, readableFlowing: true }
+readStream: { isPaused(): false, readableFlowing: true }
+writeStream: { bytesWritten: 65178 }
+
+1661288113183
+request: { isPaused(): false, readableFlowing: true }
+readStream: { isPaused(): false, readableFlowing: true }
+writeStream: { bytesWritten: 65178 }
+
+1661288114183
+request: { isPaused(): false, readableFlowing: true }
+readStream: { isPaused(): false, readableFlowing: true }
+writeStream: { bytesWritten: 65178 }
+
+1661288115185
+request: { isPaused(): false, readableFlowing: true }
+readStream: { isPaused(): false, readableFlowing: true }
+writeStream: { bytesWritten: 65178 }
+
+1661288116186
+request: { isPaused(): false, readableFlowing: true }
+readStream: { isPaused(): false, readableFlowing: true }
+writeStream: { bytesWritten: 65178 }
+
+1661288117188
+request: { isPaused(): false, readableFlowing: true }
+readStream: { isPaused(): false, readableFlowing: true }
+writeStream: { bytesWritten: 65178 }
+req.multipart() resolved
+Error: req.multipart() resolved before a file's Promise.
+    at Route.handler (/home/bobby/src/hyper-express-playground/index.js:120:11)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+500: /api/upload

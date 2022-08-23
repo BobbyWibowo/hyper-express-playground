@@ -1,0 +1,15 @@
+{
+  "license": "MIT",
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "dependencies": {
+    "hyper-express": "6.4.5",
+    "node-fetch": "^2",
+    "randomstring": "^1.2.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19",
+    "standard": "^17.0.0"
+  }
+}
