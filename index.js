@@ -47,6 +47,10 @@ apis.post('/upload', { max_body_length: MAX_SIZE_BYTES }, async (request, respon
       // File fields
       console.log(`${name} is file`)
 
+      if (field.name !== 'files[]') {
+        throw new Error(`Invalid file field: ${field.name}`)
+      }
+
       const file = {
         originalname: field.file.name || '',
         mimetype: field.mime_type || ''
