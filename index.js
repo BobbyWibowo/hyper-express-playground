@@ -2,8 +2,8 @@ const HyperExpress = require('hyper-express')
 const randomstring = require('randomstring')
 
 // Node.js built-in modules
-const fs = require('node:fs')
-const path = require('node:path')
+const fs = require('fs')
+const path = require('path')
 
 // Constants
 const UPLOAD_DIRECTORY = path.join(__dirname, 'uploads')

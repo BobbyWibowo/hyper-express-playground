@@ -4,7 +4,8 @@
     "start": "node ./index.js"
   },
   "dependencies": {
-    "hyper-express": "6.4.5",
+    "express": "^4",
+    "hyper-express": "6.4.6",
     "node-fetch": "^2",
     "randomstring": "^1.2.2"
   },
