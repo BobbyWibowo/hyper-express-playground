@@ -5,7 +5,7 @@
   },
   "dependencies": {
     "express": "^4",
-    "hyper-express": "6.4.6",
+    "hyper-express": "git+https://github.com/kartikk221/hyper-express.git#1821a4f1b4bc8c8f822e116b60f04f5489a9820c",
     "node-fetch": "^2",
     "randomstring": "^1.2.2"
   },

@@ -1043,10 +1043,9 @@ http-errors@2.0.0:
     statuses "2.0.1"
     toidentifier "1.0.1"
 
-hyper-express@6.4.6:
-  version "6.4.6"
-  resolved "https://registry.yarnpkg.com/hyper-express/-/hyper-express-6.4.6.tgz#d113bee6651879e64ef52a533409c25557677019"
-  integrity sha512-KNtDpFMYgYAYf/YiiC326T/XbafkJGKVpD9RWbaSgsl9Deu3WR5zrEMIMpKvTjEZtyN2oS80U9wZ6bFV3vPnkA==
+"hyper-express@git+https://github.com/kartikk221/hyper-express.git#1821a4f1b4bc8c8f822e116b60f04f5489a9820c":
+  version "6.4.7"
+  resolved "git+https://github.com/kartikk221/hyper-express.git#1821a4f1b4bc8c8f822e116b60f04f5489a9820c"
   dependencies:
     "@types/busboy" "^0.3.1"
     "@types/express" "^4.17.13"

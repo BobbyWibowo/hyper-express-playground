@@ -6,7 +6,7 @@ const fs = require('fs')
 const path = require('path')
 
 // Constants
-const UPLOAD_DIRECTORY = path.join(__dirname, 'uploads')
+const UPLOAD_DIRECTORY = path.join(__dirname, '..', 'uploads')
 const MAX_SIZE_BYTES = 256 * 1e6 // 256 MB
 
 console.log('Starting\u2026')
