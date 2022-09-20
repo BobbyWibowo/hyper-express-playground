@@ -1043,9 +1043,10 @@ http-errors@2.0.0:
     statuses "2.0.1"
     toidentifier "1.0.1"
 
-"hyper-express@git+https://github.com/kartikk221/hyper-express.git#1821a4f1b4bc8c8f822e116b60f04f5489a9820c":
-  version "6.4.7"
-  resolved "git+https://github.com/kartikk221/hyper-express.git#1821a4f1b4bc8c8f822e116b60f04f5489a9820c"
+hyper-express@~6.4.8:
+  version "6.4.8"
+  resolved "https://registry.yarnpkg.com/hyper-express/-/hyper-express-6.4.8.tgz#8006e923c9307971aa0b78e9d9045700ec3d7fd8"
+  integrity sha512-DRqXDzMnfSYrJznACtw/k+G360W0jxbCnyUV70L8bYO7+cl3NNApfJRfAKo0cCiKO1WDCK2ao3TUQxbMje6u2Q==
   dependencies:
     "@types/busboy" "^0.3.1"
     "@types/express" "^4.17.13"
