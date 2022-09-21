@@ -5,37 +5,56 @@ const server = new HyperExpress.Server({ fast_abort: true })
 
 // Global root middleware
 server.use((request, response, next) => {
-  console.log(`Global root middleware: ${request.ip} -> ${request.method} ${request.path}`)
+  request.locals.ranGlobalMiddleware = true
   next()
 })
 
-server.get('/', (request, response) => {
-  console.log(`${request.method} request to ${request.path} is OK.`)
+const status200 = (request, response) => {
+  const status = request.locals.ranGlobalMiddleware ? 'YES' : 'NO'
+  console.log(`${request.method} ${request.path} <- 200 OK (Global root middleware: ${status})`)
   response.status(200).end()
-})
+}
 
 // without options, nor local middleware
-server.post('/', (request, response) => {
-  console.log(`${request.method} request to ${request.path} is OK.`)
-  response.status(200).end()
-})
+server.get('/', status200)
 
-server.post('/with_options_but_no_local_middleware', {
-  max_body_length: 100 * 1e6
-}, (request, response) => {
-  console.log(`${request.method} request to ${request.path} is OK.`)
-  response.status(200).end()
-})
+server.get(
+  '/with_options_but_no_local_middleware',
+  {
+    max_body_length: 100 * 1e6
+  },
+  status200
+)
 
-server.post('/with_options_and_local_middleware', {
-  max_body_length: 100 * 1e6
-}, (request, response, next) => {
-  next()
-},
-(request, response) => {
-  console.log(`${request.method} request to ${request.path} is OK.`)
-  response.status(200).end()
-})
+server.get(
+  '/with_options_and_local_middleware',
+  {
+    max_body_length: 100 * 1e6
+  },
+  (request, response, next) => {
+  // middleware that does nothing
+    next()
+  },
+  status200
+)
+
+server.get(
+  '/with_options_that_has_empty_middleware_array',
+  {
+    max_body_length: 100 * 1e6,
+    middlewares: []
+  },
+  status200
+)
+
+server.get(
+  '/with_options_and_empty_middleware_array',
+  {
+    max_body_length: 100 * 1e6
+  },
+  [], // empty middleware array
+  status200
+)
 
 server.set_not_found_handler((request, response) => {
   console.log('not_found_handler')
