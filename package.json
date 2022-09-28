@@ -2,7 +2,7 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4",
-    "hyper-express": "~6.4.10",
+    "hyper-express": "6.4.10",
     "node-fetch": "^2",
     "randomstring": "^1.2.2"
   },

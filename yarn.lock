@@ -1043,7 +1043,7 @@ http-errors@2.0.0:
     statuses "2.0.1"
     toidentifier "1.0.1"
 
-hyper-express@~6.4.10:
+hyper-express@6.4.10:
   version "6.4.10"
   resolved "https://registry.yarnpkg.com/hyper-express/-/hyper-express-6.4.10.tgz#fddd13f9fa4b4b7fa476295dd2c89f2abd518357"
   integrity sha512-lrYfWdkYWmmgQD/96GPd0DsRSxeeTOrvD0DphR+8qHCtyB377orfxZj/9ZxPmvT7/d4jY92EYR2tdVpTUOCD9A==
