@@ -65,24 +65,21 @@ apis.post('/upload', { max_body_length: MAX_SIZE_BYTES }, async (request, respon
       let writeStream
 
       const _logStatus = () => {
-        console.log('\n' + Date.now())
+        console.log(`*** ${Date.now()}`)
         console.log(`request: { isPaused(): ${request.isPaused()}, readableFlowing: ${request.readableFlowing} }`)
         console.log(`readStream: { isPaused(): ${readStream.isPaused()}, readableFlowing: ${readStream.readableFlowing} }`)
-        if (writeStream) {
-          console.log(`writeStream: { bytesWritten: ${writeStream.bytesWritten} }`)
-        }
       }
       _logStatus()
 
       let _interval
-      file.promised = await new Promise((resolve, reject) => {
+      file.promise = new Promise((resolve, reject) => {
         readStream.once('error', reject)
 
         console.log(`fs.createWriteStream('${file.path}')`)
         writeStream = fs.createWriteStream(file.path)
         writeStream.once('error', reject)
         writeStream.once('finish', () => {
-          console.log('writeStream: finish')
+          console.log('writeStream -> finish')
           file.size = writeStream.bytesWritten
           return resolve(true)
         })
@@ -93,7 +90,7 @@ apis.post('/upload', { max_body_length: MAX_SIZE_BYTES }, async (request, respon
 
         console.log('readStream.on(\'data\', ...)')
         readStream.on('data', data => {
-          console.log(`readStream:data => ${data.length}`)
+          console.log(`readStream -> data: ${data.length}`)
         })
         _logStatus()
 
@@ -116,11 +113,16 @@ apis.post('/upload', { max_body_length: MAX_SIZE_BYTES }, async (request, respon
   })
   console.log('req.multipart() resolved')
 
+  // Await all files' Promises
+  console.log('await Promise.all()')
+  await Promise.all(request.files.map(file => file.promise))
+  console.log('Promise.all() awaited')
+
   if (request.files.length === 0) {
     throw new Error('No files.')
   }
 
-  if (request.files.some(file => !file.promised)) {
+  if (request.files.some(file => !file.promise)) {
     throw new Error('req.multipart() resolved before a file\'s Promise.')
   }
 
